@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
 
-    <RelativeLayout
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="100dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pleca_top"
+        android:layout_marginBottom="20dp"
+        android:scaleType="fitStart" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -18,14 +23,14 @@
             tools:context="com.developers.devworms.daimler_android.RegistroExito"
             android:background="@drawable/fondoagenuno"
             android:gravity="center"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="70dp">
 
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="FECHA"
                 android:id="@+id/fechaCompleta"
-                android:textSize="18dp"
+                android:textSize="25dp"
                 android:textColor="#004d97" />
 
             <ListView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -45,17 +50,16 @@
                 android:layout_marginTop="10dp" />
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView5"
                 android:src="@drawable/pleca_footer"
-                android:layout_marginTop="80dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="fitEnd" />
 
         </LinearLayout>
 
     </RelativeLayout>
-</android.support.design.widget.CoordinatorLayout>
+
 
 
 

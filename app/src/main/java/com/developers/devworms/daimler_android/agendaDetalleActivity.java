@@ -1,7 +1,10 @@
 package com.developers.devworms.daimler_android;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -9,7 +12,7 @@ import org.w3c.dom.Text;
 public class agendaDetalleActivity extends AppCompatActivity {
 
     String fechaCompuesta;
-
+    String dia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,21 +30,35 @@ public class agendaDetalleActivity extends AppCompatActivity {
         TextView salonTV = (TextView)findViewById(R.id.lugar);
         TextView horarioTV = (TextView)findViewById(R.id.horario);
         TextView codigoTV = (TextView)findViewById(R.id.recom);
-        TextView oRecomTV = (TextView)findViewById(R.id.oRecom);
 
-        if(fecha.equals("lunes"))
-            fechaCompuesta = "Lunes 20 de Junio 2016 - ";
-        else if(fecha.equals("martes"))
-            fechaCompuesta = "Martes 21 de Junio 2016 - ";
-        else if(fecha.equals("miercoles"))
-            fechaCompuesta = "Miercoles 20 de Junio 2016 - ";
+        if(fecha.equals("lunes")){
+            fechaCompuesta = "Lunes 22 de Agosto 2016 ";
+        dia="dia1";}
+        else if(fecha.equals("martes")){
+            fechaCompuesta = "Martes 23 de Agosto 2016 ";
+        dia="dia2";}
+        else if(fecha.equals("miercoles")){
+            fechaCompuesta = "Miercoles 24 de Agosto 2016 ";
+        dia="dia3";}
 
         fechaCTV.setText(fechaCompuesta);
         nombreTV.setText(nombre);
         salonTV.setText(salon);
         horarioTV.setText(horario);
         codigoTV.setText(codigo);
-        oRecomTV.setText(recomendaciones);
+        Button btnRegresar= (Button)findViewById(R.id.btnReg);
+        btnRegresar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent newScreen = new Intent(agendaDetalleActivity.this, menuActActivity.class);
+                newScreen.putExtra("dia",dia);
+                startActivity(newScreen);
+            }
+
+        });
+
+
 
     }
+
 }

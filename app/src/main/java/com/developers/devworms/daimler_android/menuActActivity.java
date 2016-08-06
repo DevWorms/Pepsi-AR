@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,15 +30,16 @@ public class menuActActivity extends AppCompatActivity {
 
         // consultar el jason
         String dia = getIntent().getStringExtra("dia");
+        Log.d("RestApi","respuesta "+dia);
         list = ApiRest.consultarListadoMenu(dia);
 
         TextView fechaCTV = (TextView)findViewById(R.id.fechaCompleta);
 
-        if(dia.equals("lunes"))
+        if(dia.equals("dia1"))
             fechaCompuesta = "Lunes 25 de Agosto 2016";
-        else if(dia.equals("martes"))
+        else if(dia.equals("dia2"))
             fechaCompuesta = "Martes 25 de Agosto 2016";
-        else if(dia.equals("miercoles"))
+        else if(dia.equals("dia3"))
             fechaCompuesta = "Miercoles 27 de Agosto 2016";
 
         fechaCTV.setText(fechaCompuesta);
@@ -101,9 +103,10 @@ public class menuActActivity extends AppCompatActivity {
 
     }
 
-
     public void cumbreScreen(View view){
         Intent newScreen = new Intent(menuActActivity.this, agendaActivity.class);
+
         startActivity(newScreen);
     }
+
 }

@@ -39,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void pantallaRegistro(View view) {
-        Intent llamarScreenCodigo = new Intent(this, MainActivity.class);
-       // Intent llamarScreenCodigo = new Intent(this, agendaActivity.class);
+       // Intent llamarScreenCodigo = new Intent(this, MainActivity.class);
+        Intent llamarScreenCodigo = new Intent(this, agendaActivity.class);
         startActivity(llamarScreenCodigo);
     }
 
