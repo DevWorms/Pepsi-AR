@@ -104,6 +104,10 @@ public class LoginActivity extends AppCompatActivity {
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
+
+    //  +++++++++++++++++++++++++++++++  AQUI METE TU PANTALLA !!  +++++++++++++++++++++++++++++++++++  //
+            //Intent llamarScreenCodigo = new Intent(this, TUPANTALLA.class);
+            //startActivity(llamarScreenCodigo);
         }
 
     }
