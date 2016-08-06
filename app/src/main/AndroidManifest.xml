@@ -22,7 +22,7 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashInicioActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +33,7 @@
             android:name=".RegistroExito"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashInicioActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Ingresar"
@@ -107,7 +107,8 @@
         <activity android:name=".fotografias3Activity" />
         <activity android:name=".fotoMenuActivity" />
         <activity android:name=".menuActActivity" />
-        <activity android:name=".agendaDetalleActivity"></activity>
+        <activity android:name=".agendaDetalleActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@drawable/fondo">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:fillViewport="false"
+            android:background="@drawable/fondo"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                tools:context="com.developers.devworms.daimler_android.MainActivity"
+                android:weightSum="1"
+                android:background="@drawable/fondo">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BIENVENIDO"
+                    android:id="@+id/textView3"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="204px"
+                    android:textSize="100px"
+                    android:textColor="#ec7f30" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/mailText"
+                    android:hint="Correo electrónico"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textColorHint="#004d97"
+                    android:textColor="#004d97"
+                    android:textSize="50px"
+                    android:layout_marginTop="289px" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/PassText"
+                    android:hint="Contraseña"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textColor="#004d97"
+                    android:textColorHint="#004d97"
+                    android:layout_marginTop="289px"
+                    android:textSize="50px" />
+
+                <Button
+                    android:layout_width="205dp"
+                    android:layout_height="80px"
+                    android:id="@+id/sigRegistroBtn"
+                    android:layout_marginTop="197px"
+                    android:onClick="Lo"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/login"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aún no te has registrado"
+                    android:id="@+id/textView7"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="40px"
+                    android:layout_marginTop="280px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registrate aquí"
+                    android:id="@+id/txtRegistro"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="40px"
+                    android:textColor="#004d97"
+                    android:onClick="pantallaRegistro"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
