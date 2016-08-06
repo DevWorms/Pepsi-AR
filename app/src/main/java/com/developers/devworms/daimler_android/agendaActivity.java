@@ -23,14 +23,7 @@ public class agendaActivity extends AppCompatActivity {
 
     public void agendaActScreen(View view){
         Intent newScreen = new Intent(agendaActivity.this, menuActActivity.class);
-        if(((Button)view).getText().toString().toLowerCase().equals("lunes")){
-            newScreen.putExtra("dia","dia1");
-        }
-        else if (((Button)view).getText().toString().toLowerCase().equals("martes")) {
-            newScreen.putExtra("dia","dia2");
-        }else{
-            newScreen.putExtra("dia","dia3");
-        }
+        newScreen.putExtra("dia",((Button)view).getText().toString().toLowerCase());
         startActivity(newScreen);
 
     }

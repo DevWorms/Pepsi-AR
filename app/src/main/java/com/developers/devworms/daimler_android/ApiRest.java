@@ -68,8 +68,10 @@ public class ApiRest {
 
             MediaType mediaType = MediaType.parse("application/octet-stream");
             Request request = new Request.Builder()
-                    .url(" http://app-pepsico.palindromo.com.mx/APP/" + dia + ".php")
+                    .url("http://app-ecodsa.com.mx/daimler/" + dia + ".php")
                     .get()
+                    .addHeader("cache-control", "no-cache")
+                    .addHeader("postman-token", "b983b2f6-8cd7-5956-32f5-bc7cf4e53b9f")
                     .build();
             JSONArray values = new RequestApi().execute(request).get();
 
