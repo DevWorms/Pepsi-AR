@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.developers.devworms.daimler_android.SplashInicioActivity"
-    android:background="#000000">
+    android:background="@drawable/splash">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:id="@+id/imageView2"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/bkgrn" />
-        </LinearLayout>
     </RelativeLayout>

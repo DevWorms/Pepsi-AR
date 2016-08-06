@@ -67,13 +67,7 @@
                     android:onClick="agendaActScreen"
                     android:layout_marginBottom="20dp" />
 
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/button"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/botonini" />
+
 
             </LinearLayout>
         </ScrollView>
