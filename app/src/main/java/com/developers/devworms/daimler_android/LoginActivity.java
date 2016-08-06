@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -43,10 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(llamarScreenCodigo);
     }
 
-    public void moduloRegistro (View view){
-                new LoadAlbums().execute();
-
-    }
+    public void moduloLogin(View view){
+        new LoadAlbums().execute();
+   }
 
 
     class LoadAlbums extends AsyncTask<String, String, String> {
@@ -98,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             pDialog.dismiss();
 
             Context context = getApplicationContext();
-            CharSequence text = "0";
+            CharSequence text = "Éxito";
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(context, text, duration);

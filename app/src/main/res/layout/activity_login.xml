@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:ems="10"
-                    android:id="@+id/PassText"
+                    android:id="@+id/passText"
                     android:hint="Contraseña"
                     android:layout_gravity="center_horizontal"
                     android:textAlignment="center"
@@ -78,7 +78,7 @@
                     android:layout_height="80px"
                     android:id="@+id/sigRegistroBtn"
                     android:layout_marginTop="197px"
-                    android:onClick="Lo"
+                    android:onClick="moduloLogin"
                     android:textColor="#ffffff"
                     android:background="@drawable/login"
                     android:layout_gravity="center_horizontal" />
