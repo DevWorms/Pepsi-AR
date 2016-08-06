@@ -2,6 +2,7 @@ package com.developers.devworms.daimler_android;
 
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ public class ApiRest {
         List<menuPojo> lMenu = new ArrayList<menuPojo>();
 
         try {
+            Log.d("RestApi","respuesta  consulta");
             // TODO code application logic here
 
             OkHttpClient client = new OkHttpClient();
@@ -72,18 +74,25 @@ public class ApiRest {
                     .get()
                     .build();
             JSONArray values = new RequestApi().execute(request).get();
-
+            Log.d("RestApi","respuesta "+ values.length());
             for (int i = 0; i < values.length(); i++) {
 
                 JSONObject sensorApi = values.getJSONObject(i);
                 menuPojo menPojo = new menuPojo();
+                Log.d("RestApi","respuesta "+sensorApi.getString("id"));
                 menPojo.setId(sensorApi.getString("id"));
+                Log.d("RestApi","respuesta "+sensorApi.getString("nombre"));
                 menPojo.setNombre(sensorApi.getString("nombre"));
+                Log.d("RestApi","respuesta "+sensorApi.getString("salon"));
                 menPojo.setSalon(sensorApi.getString("salon"));
+                Log.d("RestApi","respuesta "+sensorApi.getString("horario"));
                 menPojo.setHorario(sensorApi.getString("horario"));
+                Log.d("RestApi","respuesta "+sensorApi.getString("codigo"));
                 menPojo.setCodigo(sensorApi.getString("codigo"));
-                menPojo.setRecomendaciones(sensorApi.getString("recomendaciones"));
-                menPojo.setFecha(sensorApi.getString("fecha"));
+                Log.d("RestApi","respuesta "+sensorApi.getString("img"));
+               // menPojo.setRecomendaciones(sensorApi.getString("img"));
+                Log.d("RestApi","respuesta "+sensorApi.getString("dia"));
+                menPojo.setFecha(sensorApi.getString("dia"));
                 lMenu.add(menPojo);
             }
         }
