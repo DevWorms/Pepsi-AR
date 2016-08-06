@@ -18,7 +18,7 @@ public class SplashInicioActivity extends AppCompatActivity {
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{
-                    Intent intent = new Intent(SplashInicioActivity.this,Ingresar.class);
+                    Intent intent = new Intent(SplashInicioActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
             }

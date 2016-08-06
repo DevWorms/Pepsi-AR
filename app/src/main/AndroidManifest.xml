@@ -108,7 +108,10 @@
         <activity android:name=".fotoMenuActivity" />
         <activity android:name=".menuActActivity" />
         <activity android:name=".agendaDetalleActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MenuPepsico" />
+        <activity android:name=".RallyCode" />
+        <activity android:name=".PistasActivas"></activity>
     </application>
 
 </manifest>
