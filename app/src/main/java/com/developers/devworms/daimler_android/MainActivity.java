@@ -4,6 +4,7 @@ import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner tipo;
 
 
+    //  Preferencias
+    SharedPreferences misPrefs;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         tipo = (Spinner) findViewById(R.id.tipoSpinner);
         contrasena = (EditText)findViewById(R.id.passText);
         repiteContrasena = (EditText)findViewById(R.id.cnfPassText);
+
+
+        misPrefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
 
 
         //  SPINNER TIPO
@@ -179,6 +187,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             // dismiss the dialog after getting all albums
 
             pDialog.dismiss();
+
+            SharedPreferences.Editor editor = misPrefs.edit();
+            editor.putString("email", mailStr);
+            editor.putBoolean("acceso", true);
+            editor.commit();
 
             Intent registrarScreen = new Intent(MainActivity.this, RegistroExito.class);
             startActivity(registrarScreen);

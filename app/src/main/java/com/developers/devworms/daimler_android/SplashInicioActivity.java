@@ -1,15 +1,29 @@
 package com.developers.devworms.daimler_android;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class SplashInicioActivity extends AppCompatActivity {
 
+
+    //  Preferencias
+    SharedPreferences misPrefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_inicio);
+
+
+        misPrefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor = misPrefs.edit();
+        //editor.putBoolean("acceso", false);
+        //editor.commit();
+
 
         Thread timerThread = new Thread(){
             public void run(){
@@ -18,8 +32,23 @@ public class SplashInicioActivity extends AppCompatActivity {
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{
-                    Intent intent = new Intent(SplashInicioActivity.this, LoginActivity.class);
-                    startActivity(intent);
+
+                    boolean acceso = misPrefs.getBoolean("acceso",true);
+
+                    if(acceso)
+                    {
+                        Intent intent = new Intent(SplashInicioActivity.this,MenuPepsico.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else
+                    {
+
+                        Intent intent = new Intent(SplashInicioActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 }
             }
         };

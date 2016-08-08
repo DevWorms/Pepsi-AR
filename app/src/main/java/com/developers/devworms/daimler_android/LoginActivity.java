@@ -1,12 +1,16 @@
 package com.developers.devworms.daimler_android;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -15,6 +19,7 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
+import java.io.StringReader;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText mail;
     EditText contrasena;
 
+    //  Preferencias
+    SharedPreferences misPrefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +40,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mail = (EditText)findViewById(R.id.mailText);
         contrasena = (EditText)findViewById(R.id.passText);
+
+        misPrefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
 
     }
 
@@ -49,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
 
         String mailStr = mail.getText().toString();
         String passStr = contrasena.getText().toString();
+
+        Response response;
         /**
          * Before starting background thread Show Progress Dialog
          * */
@@ -77,7 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                     .build();
 
             try {
-                Response response = client.newCall(request).execute();
+                response = client.newCall(request).execute();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -91,11 +104,35 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all albums
 
+            String exito = "\"Success\"";
+
             pDialog.dismiss();
 
-    //  +++++++++++++++++++++++++++++++  AQUI METE TU PANTALLA !!  +++++++++++++++++++++++++++++++++++  //
-            Intent llamarScreenCodigo = new Intent(LoginActivity.this, MenuPepsico.class);
-            startActivity(llamarScreenCodigo);
+            Context context = getApplicationContext();
+            String text = null;
+            try {
+                text = response.body().string();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if(exito.equals(text))  {
+
+                SharedPreferences.Editor editor = misPrefs.edit();
+                editor.putString("email", mailStr);
+                editor.putBoolean("acceso", true);
+                editor.commit();
+
+                Intent llamarScreenCodigo = new Intent(LoginActivity.this, MenuPepsico.class);
+                startActivity(llamarScreenCodigo);
+            }
+
+            else    {
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+
         }
 
     }
