@@ -104,17 +104,30 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".fotografias2Activity"
-            android:label="@string/title_activity_fotografias2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".fotografias3Activity" />
         <activity android:name=".fotoMenuActivity" />
-        <activity android:name=".menuActActivity" />
-        <activity android:name=".agendaDetalleActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".MenuPepsico" />
-        <activity android:name=".RallyCode" />
-        <activity android:name=".Rally" />
-        <activity android:name=".PistasActivas"></activity>
+        <activity
+            android:name=".menuActActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".agendaDetalleActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".MenuPepsico"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".RallyCode"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Rally"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".PistasActivas"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -10,15 +10,28 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.developers.devworms.daimler_android.RallyCode">
 
+    <Button
+        android:text="Validar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button5"
+        android:onClick="verificarCode" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
-        tools:layout_editor_absoluteY="234dp"
+        tools:layout_editor_absoluteY="264dp"
         tools:layout_editor_absoluteX="82dp"
-        android:id="@+id/editText"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/editTextCode"
+        android:layout_above="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:textAlignment="center"
+        android:hint="Código"
+        android:textColor="#004d97"
+        android:textColorHint="#004d97" />
 </RelativeLayout>

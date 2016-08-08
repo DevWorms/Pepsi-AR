@@ -1,13 +1,8 @@
 package com.developers.devworms.daimler_android;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class agendaDetalleActivity extends AppCompatActivity {
 
@@ -46,19 +41,6 @@ public class agendaDetalleActivity extends AppCompatActivity {
         salonTV.setText(salon);
         horarioTV.setText(horario);
         codigoTV.setText(codigo);
-        Button btnRegresar= (Button)findViewById(R.id.btnReg);
-        btnRegresar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent newScreen = new Intent(agendaDetalleActivity.this, menuActActivity.class);
-                newScreen.putExtra("dia",dia);
-                startActivity(newScreen);
-            }
-
-        });
-
-
-
     }
 
 }
