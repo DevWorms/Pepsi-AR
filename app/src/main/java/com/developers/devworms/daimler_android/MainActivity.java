@@ -1,6 +1,5 @@
 package com.developers.devworms.daimler_android;
 
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,7 +21,6 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.io.StringReader;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
@@ -40,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     EditText repiteContrasena;
 
     Spinner tipo;
-
 
     //  Preferencias
     SharedPreferences misPrefs;
@@ -60,9 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         contrasena = (EditText)findViewById(R.id.passText);
         repiteContrasena = (EditText)findViewById(R.id.cnfPassText);
 
-
         misPrefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
-
 
         //  SPINNER TIPO
             Spinner spinnerArea = (Spinner) findViewById(R.id.tipoSpinner);
@@ -80,13 +74,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void moduloRegistro (View view){
         String pass = contrasena.getText().toString();
         String rePass = repiteContrasena.getText().toString();
+        String email = mail.getText().toString();
+        String nombreString = nombre.getText().toString();
 
-        if(pass.trim().length() == 0 || rePass.trim().length() == 0 ) {
-            Context context = getApplicationContext();
-            CharSequence text = "Ingresa contraseña";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
+        if(pass.trim().length() == 0 || rePass.trim().length() == 0 ||
+                email.trim().length() == 0 || nombreString.trim().length() == 0) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Faltan campos", Toast.LENGTH_SHORT);
             toast.show();
         }
 
@@ -138,10 +131,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String mailStr = mail.getText().toString();
         String tipoStr = tipo.getSelectedItem().toString();
         String passStr = contrasena.getText().toString();
-        String translado;
-        String hospedaje;
-        String tipoHabitacion;
-        String tipoPago;
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -195,6 +184,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             Intent registrarScreen = new Intent(MainActivity.this, RegistroExito.class);
             startActivity(registrarScreen);
+
+            finishAffinity();
         }
 
     }

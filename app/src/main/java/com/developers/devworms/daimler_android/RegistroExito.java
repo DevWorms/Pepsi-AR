@@ -16,6 +16,7 @@ public class RegistroExito extends AppCompatActivity {
     public void validarRegistro(View view){
         Intent registrarScreen = new Intent(this, MenuPepsico.class);
         startActivity(registrarScreen);
+        finish();
     }
 
 }

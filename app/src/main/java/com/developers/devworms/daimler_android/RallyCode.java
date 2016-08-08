@@ -1,13 +1,16 @@
 package com.developers.devworms.daimler_android;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -25,6 +28,9 @@ public class RallyCode extends AppCompatActivity {
     private String botonStr;
     private EditText editTextCode;
 
+    //  Preferencias
+    SharedPreferences misPrefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,25 +38,27 @@ public class RallyCode extends AppCompatActivity {
 
         botonStr = getIntent().getStringExtra("boton");
         editTextCode = (EditText)findViewById(R.id.editTextCode);
+
+        misPrefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
     }
 
     public void verificarCode(View v){
 
-        Log.i("edit ",editTextCode.getText().toString());
         Log.i("boton ",botonStr);
 
-        if (editTextCode.getText().toString().equals("camara")) {
-            Log.i("entro1 ","entro1");
-        }
-
-        if (botonStr.equals("1") ) {
-            Log.i("entro2 ","entro2");
-        }
-
-        if (botonStr.equals("1") && editTextCode.getText().toString().equals("camara")) {
-            Log.i("entro3 ","entro3");
+        if (    (botonStr.equals("1") && editTextCode.getText().toString().equals("camara")) ||
+                (botonStr.equals("2") && editTextCode.getText().toString().equals("camara2")) ||
+                (botonStr.equals("3") && editTextCode.getText().toString().equals("camara3")) ||
+                (botonStr.equals("4") && editTextCode.getText().toString().equals("camara4")) ||
+                (botonStr.equals("5") && editTextCode.getText().toString().equals("camara5")) ||
+                (botonStr.equals("6") && editTextCode.getText().toString().equals("camara6")) ||
+                (botonStr.equals("7") && editTextCode.getText().toString().equals("camara7")) ||
+                (botonStr.equals("8") && editTextCode.getText().toString().equals("camara8")) ||
+                (botonStr.equals("9") && editTextCode.getText().toString().equals("camara9")) ) {
             new PostCode().execute();
-            Log.i("entro32 ","entro32");
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(), "Código incorrecto", Toast.LENGTH_SHORT);
+            toast.show();
         }
 
     }
@@ -108,8 +116,15 @@ public class RallyCode extends AppCompatActivity {
 
             pDialog.dismiss();
 
-            Intent registrarScreen = new Intent(RallyCode.this, Rally.class);
-            startActivity(registrarScreen);
+            SharedPreferences.Editor editor = misPrefs.edit();
+            editor.putBoolean(botonStr, false);
+            editor.commit();
+
+            //para que te regrese de la actividad Rally y recargue
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+
+            finish();
         }
 
     }

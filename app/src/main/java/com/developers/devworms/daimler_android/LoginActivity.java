@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,7 +18,6 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.io.StringReader;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -105,11 +103,10 @@ public class LoginActivity extends AppCompatActivity {
             // dismiss the dialog after getting all albums
 
             String exito = "\"Success\"";
+            String text = null;
 
             pDialog.dismiss();
 
-            Context context = getApplicationContext();
-            String text = null;
             try {
                 text = response.body().string();
             } catch (IOException e) {
@@ -125,11 +122,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent llamarScreenCodigo = new Intent(LoginActivity.this, MenuPepsico.class);
                 startActivity(llamarScreenCodigo);
-            }
 
-            else    {
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
+                finish();
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
                 toast.show();
             }
 
@@ -137,6 +133,3 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 }
-//respuestas.php
-//post
-//
