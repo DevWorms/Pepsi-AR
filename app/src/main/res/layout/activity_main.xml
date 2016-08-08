@@ -1,38 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
+    tools:context="com.developers.devworms.daimler_android.MainActivity"
     android:background="@drawable/fondo">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="fill_parent"
-
         android:orientation="vertical"
         android:padding="10dp"
         android:fillViewport="false"
-        android:background="@drawable/fondo"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:context="com.developers.devworms.daimler_android.MainActivity"
-            android:weightSum="1"
-            android:background="@drawable/fondo">
-
+            android:weightSum="1">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,8 +28,8 @@
                 android:text="REGISTRO"
                 android:id="@+id/textView3"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="172px"
-                android:textSize="85px"
+                android:layout_marginTop="50dp"
+                android:textSize="40sp"
                 android:textColor="#004d97" />
 
             <EditText
@@ -50,19 +38,15 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/nombreText"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:nestedScrollingEnabled="true"
                 android:hint="Nombre (s)"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#004d97"
                 android:textColorHint="#004d97"
-                android:textSize="50px"
-                android:layout_marginTop="155px" />
+                android:textSize="20sp"
+                android:layout_marginTop="40dp"
+                android:selectAllOnFocus="false"
+                android:textColorHighlight="@color/colorAccent" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -70,18 +54,13 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/apellidoPText"
-                android:layout_below="@+id/nombreText"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:hint="Apellido Paterno"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#004d97"
                 android:textColorHint="#004d97"
-                android:textSize="50px"
-                android:layout_marginTop="139px" />
+                android:textSize="20sp"
+                android:layout_marginTop="30dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -89,18 +68,13 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/apellidoMText"
-                android:layout_below="@+id/apellidoPText"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignRight="@+id/apellidoPText"
-                android:layout_alignEnd="@+id/apellidoPText"
                 android:hint="Apellido Materno"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#004d97"
                 android:textColorHint="#004d97"
-                android:textSize="50px"
-                android:layout_marginTop="139px" />
+                android:textSize="20sp"
+                android:layout_marginTop="30dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -113,24 +87,17 @@
                 android:textAlignment="center"
                 android:textColorHint="#004d97"
                 android:textColor="#004d97"
-                android:textSize="50px"
-                android:layout_marginTop="139px" />
+                android:textSize="20sp"
+                android:layout_marginTop="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Área"
                 android:id="@+id/textView"
-                android:layout_below="@+id/mailText"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_above="@+id/tipoSpinner"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:textAlignment="center"
-                android:textSize="50px"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="139px"
+                android:textSize="20sp"
+                android:layout_marginTop="30dp"
                 android:textColor="#004d97"
                 android:layout_gravity="center_horizontal" />
 
@@ -138,9 +105,6 @@
                 android:layout_width="204dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tipoSpinner"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:spinnerMode="dropdown"
                 android:text="Selecciona"
                 android:layout_gravity="center_horizontal"
@@ -153,13 +117,13 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:id="@+id/passText"
-                android:layout_marginTop="139px"
+                android:layout_marginTop="30dp"
                 android:hint="Crea tu contraseña"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColorHint="#004d97"
                 android:textColor="#004d97"
-                android:textSize="50px" />
+                android:textSize="20sp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -172,14 +136,14 @@
                 android:textAlignment="center"
                 android:textColor="#004d97"
                 android:textColorHint="#004d97"
-                android:layout_marginTop="139px"
-                android:textSize="50px" />
+                android:layout_marginTop="30dp"
+                android:textSize="20sp" />
 
             <Button
                 android:layout_width="205dp"
                 android:layout_height="67dp"
                 android:id="@+id/sigRegistroBtn"
-                android:layout_marginTop="127px"
+                android:layout_marginTop="40dp"
                 android:onClick="moduloRegistro"
                 android:textColor="#ffffff"
                 android:background="@drawable/enviar"
@@ -188,6 +152,4 @@
         </LinearLayout>
 
     </ScrollView>
-
-    </RelativeLayout>
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
